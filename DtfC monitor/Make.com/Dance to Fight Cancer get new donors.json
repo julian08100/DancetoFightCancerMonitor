@@ -1,0 +1,624 @@
+{
+    "name": "Dance to Fight Cancer get new donors",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 1478117,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -256,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "New donors"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 15,
+            "module": "wordpress:updatePost",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 2686131
+            },
+            "mapper": {
+                "id": "486",
+                "type": "pages",
+                "content": "<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:image {\"id\":79,\"width\":\"216px\",\"sizeSlug\":\"medium\",\"linkDestination\":\"none\",\"align\":\"center\"} -->\n<figure class=\"wp-block-image aligncenter size-medium is-resized\"><img src=\"https://nyenrodestuds.nl/wp-content/uploads/2024/06/Lions-300x280.png\" alt=\"\" class=\"wp-image-79\" style=\"width:216px\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:paragraph -->\n<p>Op dit moment heeft Lions aan de Vecht opgehaald:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"luminous-vivid-amber\",\"className\":\"has-luminous-vivid-amber-color has-text-color has-link-color has-huge-font-size\",\"fontSize\":\"huge\"} -->\n<p class=\"has-text-align-center has-luminous-vivid-amber-color has-text-color has-link-color has-huge-font-size\" id=\"make\"><strong></strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://www.fightcancer.nl/fundraisers/dameslions\">Doneer op de Lions</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:html -->\n<br>\n<!-- /wp:html -->\n\n<!-- wp:image {\"id\":63,\"width\":\"207px\",\"height\":\"auto\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"align\":\"center\"} -->\n<figure class=\"wp-block-image aligncenter size-full is-resized\"><img src=\"https://nyenrodestuds.nl/wp-content/uploads/2024/05/Logozwart.png\" alt=\"\" class=\"wp-image-63\" style=\"width:207px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:html -->\n<br>\n<br>\n<!-- /wp:html -->\n\n<!-- wp:paragraph -->\n<p>Op dit moment heeft Nyenrode Studs opgehaald:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"align\":\"center\",\"style\":{\"elements\":{\"link\":{\"color\":{\"text\":\"var:preset|color|luminous-vivid-amber\"}}}},\"textColor\":\"luminous-vivid-amber\",\"fontSize\":\"huge\"} -->\n<p class=\"has-text-align-center has-luminous-vivid-amber-color has-text-color has-link-color has-huge-font-size\" id=\"make\"><strong></strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"width\":100} -->\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://www.fightcancer.nl/fundraisers/nyenrodestuds\">Doneer op de Studs</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:paragraph -->\n<p>De topdonateurs van de avond zijn:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol><!-- wp:list-item -->\n<li id=\"make\">{{1.`0`}} met €{{1.`1`}} voor team {{1.`2`}}!</li>\n<!-- /wp:list-item -->"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 108,
+                    "y": 5
+                },
+                "restore": {
+                    "expect": {
+                        "meta": {
+                            "mode": "chose"
+                        },
+                        "tags": {
+                            "mode": "chose"
+                        },
+                        "type": {
+                            "mode": "chose",
+                            "label": "Pagina's"
+                        },
+                        "author": {
+                            "mode": "chose"
+                        },
+                        "format": {
+                            "mode": "chose"
+                        },
+                        "status": {
+                            "mode": "chose"
+                        },
+                        "sticky": {
+                            "mode": "chose"
+                        },
+                        "taxonomy": {
+                            "mode": "chose"
+                        },
+                        "categories": {
+                            "mode": "chose"
+                        },
+                        "pingStatus": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "commentStatus": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "wordpress4"
+                            },
+                            "label": "Studs"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:wordpress4",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Type",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "number",
+                        "label": "Post ID",
+                        "required": true
+                    },
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Content"
+                    },
+                    {
+                        "name": "excerpt",
+                        "type": "text",
+                        "label": "Excerpt"
+                    },
+                    {
+                        "name": "date",
+                        "type": "date",
+                        "label": "Date"
+                    },
+                    {
+                        "name": "slug",
+                        "type": "text",
+                        "label": "Slug"
+                    },
+                    {
+                        "name": "status",
+                        "type": "select",
+                        "label": "Status"
+                    },
+                    {
+                        "name": "format",
+                        "type": "select",
+                        "label": "Format"
+                    },
+                    {
+                        "name": "parent",
+                        "type": "number",
+                        "label": "Parent object ID"
+                    },
+                    {
+                        "name": "categories",
+                        "type": "select",
+                        "label": "Categories",
+                        "multiple": true
+                    },
+                    {
+                        "name": "tags",
+                        "type": "select",
+                        "label": "Tags",
+                        "multiple": true
+                    },
+                    {
+                        "name": "author",
+                        "type": "select",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "featuredMedia",
+                        "type": "number",
+                        "label": "Featured media ID"
+                    },
+                    {
+                        "name": "template",
+                        "type": "text",
+                        "label": "Template"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "sticky",
+                        "type": "boolean",
+                        "label": "Sticky"
+                    },
+                    {
+                        "name": "commentStatus",
+                        "type": "select",
+                        "label": "Comment status",
+                        "validate": {
+                            "enum": [
+                                "open",
+                                "closed"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "pingStatus",
+                        "type": "select",
+                        "label": "Ping status",
+                        "validate": {
+                            "enum": [
+                                "open",
+                                "closed"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "taxonomy",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "values",
+                                "type": "array",
+                                "label": "Values",
+                                "required": true
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Additional fields"
+                    },
+                    {
+                        "name": "meta",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Metadata (custom fields)"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "uinteger",
+                        "label": "Post ID"
+                    },
+                    {
+                        "name": "author",
+                        "type": "uinteger",
+                        "label": "Author ID"
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Content"
+                    },
+                    {
+                        "name": "excerpt",
+                        "type": "text",
+                        "label": "Excerpt"
+                    },
+                    {
+                        "name": "featuredMedia",
+                        "type": "number",
+                        "label": "Featured media ID"
+                    },
+                    {
+                        "name": "date",
+                        "type": "text",
+                        "label": "Date"
+                    },
+                    {
+                        "name": "date_gmt",
+                        "type": "text",
+                        "label": "Date GMT"
+                    },
+                    {
+                        "name": "modified",
+                        "type": "text",
+                        "label": "Modified"
+                    },
+                    {
+                        "name": "comment_status",
+                        "type": "text",
+                        "label": "Comment Status"
+                    },
+                    {
+                        "name": "ping_status",
+                        "type": "text",
+                        "label": "Ping Status"
+                    },
+                    {
+                        "name": "modified_gmt",
+                        "type": "text",
+                        "label": "Modified GMT"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "slug",
+                        "type": "text",
+                        "label": "Slug"
+                    },
+                    {
+                        "name": "status",
+                        "type": "text",
+                        "label": "Status"
+                    },
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "sticky",
+                        "type": "boolean",
+                        "label": "Sticky"
+                    },
+                    {
+                        "name": "categories",
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "tags",
+                        "type": "array",
+                        "label": "Tags"
+                    },
+                    {
+                        "name": "guid",
+                        "type": "text",
+                        "label": "Guid"
+                    },
+                    {
+                        "name": "type",
+                        "type": "text",
+                        "label": "Type"
+                    },
+                    {
+                        "name": "type_for_mapping",
+                        "type": "text",
+                        "label": "Type for Mapping"
+                    },
+                    {
+                        "name": "link",
+                        "type": "url",
+                        "label": "Link"
+                    },
+                    {
+                        "name": "featured_media",
+                        "type": "number",
+                        "label": "Featured media"
+                    },
+                    {
+                        "name": "template",
+                        "type": "text",
+                        "label": "Template"
+                    },
+                    {
+                        "name": "format",
+                        "type": "text",
+                        "label": "Format"
+                    },
+                    {
+                        "name": "permalink_template",
+                        "type": "text",
+                        "label": "Permalink template"
+                    },
+                    {
+                        "name": "generated_slug",
+                        "type": "text",
+                        "label": "Generated slug"
+                    },
+                    {
+                        "name": "_links",
+                        "spec": [
+                            {
+                                "name": "self",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Self"
+                            },
+                            {
+                                "name": "collection",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Collection"
+                            },
+                            {
+                                "name": "about",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "About"
+                            },
+                            {
+                                "name": "author",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "embeddable",
+                                            "type": "boolean",
+                                            "label": "Embeddable"
+                                        },
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Author"
+                            },
+                            {
+                                "name": "replies",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "embeddable",
+                                            "type": "boolean",
+                                            "label": "Embeddable"
+                                        },
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Replies"
+                            },
+                            {
+                                "name": "version-history",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "count",
+                                            "type": "number",
+                                            "label": "Count"
+                                        },
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Version History"
+                            },
+                            {
+                                "name": "predecessor-version",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "number",
+                                            "label": "ID"
+                                        },
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Predecessor Version"
+                            },
+                            {
+                                "name": "wp:attachment",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Wp:Attachment"
+                            },
+                            {
+                                "name": "wp:term",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "taxonomy",
+                                            "type": "text",
+                                            "label": "Taxonomy"
+                                        },
+                                        {
+                                            "name": "embeddable",
+                                            "type": "boolean",
+                                            "label": "Embeddable"
+                                        },
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Wp:Term"
+                            },
+                            {
+                                "name": "curies",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "name",
+                                            "type": "text",
+                                            "label": "Name"
+                                        },
+                                        {
+                                            "name": "href",
+                                            "type": "text",
+                                            "label": "Href"
+                                        },
+                                        {
+                                            "name": "templated",
+                                            "type": "boolean",
+                                            "label": "Templated"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Curies"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": " Links"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}

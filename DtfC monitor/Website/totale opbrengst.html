@@ -1,0 +1,83 @@
+<!-- wp:html -->
+<style>
+        .wp-block-separator {
+            display: none!important; /* Hides the footer */
+        }
+        footer {
+            display: none!important; /* Hides the footer */
+        }
+        body {
+            
+            height: calc(100% + 150px);
+            overflow-y: hidden;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .amount {
+            font-size: 6em; /* 3 times as big */
+            color: #FFA500;
+            transition: all 0.5s ease-in-out;
+            font-weight: bold; /* Makes the text bold */
+            margin-bottom: -10px; /* Adds negative bottom margin */
+            text-align: center; /* Centers the text */
+        }
+        .updated {
+            color: #32CD32;
+            transform: scale(1.2);
+        }
+    </style>
+
+    <script>
+        function fetchData() {
+            fetch('url')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    
+                    const lionsAmountElement = doc.querySelector('div.wp-block-column:nth-child(1) p.has-huge-font-size strong');
+                    const studsAmountElement = doc.querySelector('div.wp-block-column:nth-child(2) p.has-huge-font-size strong');
+
+                    const lionsAmount = lionsAmountElement ? lionsAmountElement.textContent : "€0";
+                    const studsAmount = studsAmountElement ? studsAmountElement.textContent : "€0";
+
+                    updateAmount('lions-amount', lionsAmount);
+                    updateAmount('studs-amount', studsAmount);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function updateAmount(elementId, newAmount) {
+            const element = document.getElementById(elementId);
+            if (element && element.textContent !== newAmount) {
+                element.textContent = newAmount;
+                element.classList.add('updated');
+                setTimeout(() => element.classList.remove('updated'), 1000);
+            }
+        }
+
+        setInterval(fetchData, 1000);
+        fetchData();  // Initial fetch to set the values
+    </script>
+<!-- /wp:html -->
+
+<!-- wp:image {"id":370,"width":"786px","height":"auto","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="url-to-image" alt="" class="wp-image-370" style="width:786px;height:auto"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:html -->
+<p class="amount" id="lions-amount"><strong></strong></p>
+<!-- /wp:html --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:html -->
+<p class="amount" id="studs-amount"><strong></strong></p>
+<!-- /wp:html --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
